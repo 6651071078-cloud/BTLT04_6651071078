@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+<rect width="800" height="500" fill="#f3e6d7"/>
+<circle cx="400" cy="245" r="150" fill="#6d4b3a" opacity="0.9"/>
+<ellipse cx="400" cy="375" rx="205" ry="32" fill="#d7c0a8" opacity="0.6"/>
+<text x="400" y="255" text-anchor="middle" font-family="Arial" font-size="42" font-weight="bold" fill="white">Chocolate đá xay</text>
+<text x="400" y="305" text-anchor="middle" font-family="Arial" font-size="22" fill="white">THE COZY BEAN</text>
+</svg>

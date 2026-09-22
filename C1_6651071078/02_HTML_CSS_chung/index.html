@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Cozy Bean Coffee</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f3ed;
+    color: #3f2a20;
+    line-height: 1.6;
+}
+
+#dau-trang {
+    background: #5a3825;
+    color: white;
+}
+
+.banner {
+    min-height: 330px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #6f472f, #3f2619);
+}
+
+.banner::before,
+.banner::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.08);
+}
+
+.banner::before {
+    width: 300px;
+    height: 300px;
+    left: -80px;
+    top: -100px;
+}
+
+.banner::after {
+    width: 400px;
+    height: 400px;
+    right: -150px;
+    bottom: -180px;
+}
+
+img.logo {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 12px;
+}
+
+.hero-text {
+    position: relative;
+    z-index: 2;
+}
+
+.eyebrow,
+.section-kicker {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: bold;
+    color: #c88950;
+}
+
+h1 {
+    font-size: 46px;
+    margin: 5px 0;
+}
+
+.slogan {
+    font-size: 18px;
+    color: #f6dfc7;
+}
+
+nav {
+    background: #2f1c13;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+nav > ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 15px 18px;
+    font-weight: bold;
+}
+
+nav ul li a:hover,
+nav ul li:first-child a {
+    background: #a96738;
+}
+
+main {
+    max-width: 1250px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.intro,
+.menu-section,
+.promotion {
+    margin-bottom: 50px;
+}
+
+.intro {
+    text-align: center;
+}
+
+.intro h2 {
+    font-size: 32px;
+    color: #603b26;
+    margin: 8px 0;
+}
+
+.intro-text {
+    max-width: 750px;
+    margin: auto;
+    color: #70584a;
+}
+
+.section-heading {
+    margin-bottom: 22px;
+}
+
+.section-heading h2 {
+    font-size: 32px;
+    color: #603b26;
+}
+
+.count {
+    color: #8a6a56;
+}
+
+.coffee-layout {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.menu-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(65,40,25,0.10);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(65,40,25,0.18);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+    background: #eee0d1;
+}
+
+.card-body {
+    padding: 16px;
+}
+
+.card h3 {
+    color: #5d3824;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.description {
+    color: #806b5d;
+    font-size: 14px;
+    min-height: 45px;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+}
+
+.price {
+    color: #b46b32;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+button {
+    border: none;
+    background: #a96738;
+    color: white;
+    padding: 8px 13px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #7d4a29;
+}
+
+/* MÓN HOT */
+.hot-menu {
+    background: #fff8ef;
+    border: 2px solid #c88a4a;
+    border-radius: 18px;
+    padding: 20px;
+    width: 285px;
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 75px;
+}
+
+.hot-menu h3 {
+    margin-bottom: 18px;
+    color: #7b4a25;
+    font-size: 22px;
+    text-align: center;
+}
+
+.hot-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #ead8c5;
+}
+
+.hot-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.hot-item img {
+    width: 68px;
+    height: 68px;
+    object-fit: cover;
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+.hot-item h4 {
+    margin: 0 0 4px;
+    color: #4b2e1f;
+    font-size: 16px;
+}
+
+.hot-item p {
+    margin: 0;
+    color: #c47a35;
+    font-weight: bold;
+}
+
+.hot-label {
+    display: inline-block;
+    background: #c94c35;
+    color: white;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    margin-bottom: 4px;
+}
+
+.promotion {
+    background: linear-gradient(135deg, #6f472f, #3f2619);
+    color: white;
+    border-radius: 22px;
+    padding: 35px;
+    text-align: center;
+}
+
+.promotion h2 {
+    font-size: 32px;
+    margin: 7px 0;
+}
+
+.promotion p {
+    color: #f5dfcc;
+}
+
+.promo-badge {
+    display: inline-block;
+    background: #d98b45;
+    padding: 8px 16px;
+    border-radius: 25px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+footer {
+    background: #2f1c13;
+    color: white;
+    padding: 35px 20px;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.footer-content h2 {
+    color: #e2a66d;
+    margin-bottom: 8px;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 25px;
+    color: #bda99b;
+    font-size: 14px;
+}
+
+@media (max-width: 1000px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .coffee-layout {
+        flex-direction: column;
+    }
+
+    .hot-menu {
+        width: 100%;
+        position: static;
+    }
+
+    .hot-item {
+        display: inline-flex;
+        width: 48%;
+        margin-right: 1%;
+        vertical-align: top;
+    }
+}
+
+@media (max-width: 750px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+
+    .hot-item {
+        width: 100%;
+    }
+}
+
+@media (max-width: 520px) {
+    nav ul li a {
+        padding: 11px 9px;
+        font-size: 13px;
+    }
+
+    main {
+        padding: 30px 12px;
+    }
+
+    .banner {
+        min-height: 280px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header id="dau-trang">
+    <div class="banner">
+        <div class="hero-text">
+            <img class="logo" src="images/logo.svg" alt="Logo The Cozy Bean">
+            <p class="eyebrow">Coffee • Tea • Cake</p>
+            <h1>The Cozy Bean</h1>
+            <p class="slogan">Một góc nhỏ cho những ngày thật chill ☕</p>
+        </div>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#trang-chu">Trang chủ</a></li>
+            <li><a href="#ca-phe">Cà phê</a></li>
+            <li><a href="#tra">Trà</a></li>
+            <li><a href="#da-xay">Đá xay & Soda</a></li>
+            <li><a href="#banh">Bánh</a></li>
+            <li><a href="#khuyen-mai">Khuyến mãi</a></li>
+            <li><a href="#lien-he">Liên hệ</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+<section id="trang-chu" class="intro">
+    <p class="section-kicker">WELCOME</p>
+    <h2>Chào mừng đến The Cozy Bean</h2>
+    <p class="intro-text">
+        Không gian cà phê ấm áp, menu đa dạng và những món uống được pha chế
+        với sự chăm chút. Hãy chọn một món yêu thích và tận hưởng thời gian của bạn.
+    </p>
+</section>
+
+<!-- CÀ PHÊ + MÓN HOT -->
+<section id="ca-phe" class="menu-section">
+    <div class="section-heading">
+        <p class="section-kicker">MENU 01</p>
+        <h2>Cà phê</h2>
+        <p class="count">Những món cà phê được yêu thích tại quán.</p>
+    </div>
+
+    <div class="coffee-layout">
+
+        <div class="menu-grid">
+
+            <article class="card">
+                <img src="https://127268010.cdn6.editmysite.com/uploads/1/2/7/2/127268010/LZCWBCSK3YZWCSV6PTTNWMNV.jpeg?optimize=medium&width=2400" alt="Cà phê đen">
+                <div class="card-body">
+                    <h3>Cà phê đen</h3>
+                    <p class="description">Đậm đà, thơm nồng, phù hợp cho buổi sáng.</p>
+                    <div class="card-bottom">
+                        <span class="price">30.000đ</span>
+                        <button>Đặt món</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://images.getrecipekit.com/20250721214230-Vietnam_Bac-Xiu-2.jpg?aspect_ratio=4%3A3&quality=90" alt="Bạc xỉu">
+                <div class="card-body">
+                    <h3>Bạc xỉu</h3>
+                    <p class="description">Vị cà phê nhẹ hòa cùng sữa ngọt béo.</p>
+                    <div class="card-bottom">
+                        <span class="price">36.000đ</span>
+                        <button>Đặt món</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://statics.vinpearl.com/how-to-drink-vietnamese-coffee-05_1701786449.jpg" alt="Cà phê sữa">
+                <div class="card-body">
+                    <h3>Cà phê sữa</h3>
+                    <p class="description">Cà phê đậm kết hợp sữa đặc truyền thống.</p>
+                    <div class="card-bottom">
+                        <span class="price">35.000đ</span>
+                        <button>Đặt món</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/food_pics_v2/medium/regular_latte.jpg" alt="Latte">
+                <div class="card-body">
+                    <h3>Latte</h3>
+                    <p class="description">Espresso hòa quyện cùng sữa tươi mịn màng.</p>
+                    <div class="card-bottom">
+                        <span class="price">45.000đ</span>
+                        <button>Đặt món</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://media.kaufland.com/images/PPIM/AP_Content_2708/std.lang.all/10/91/Asset_1671091.jpg" alt="Cappuccino">
+                <div class="card-body">
+                    <h3>Cappuccino</h3>
+                    <p class="description">Lớp bọt sữa mịn cùng hương cà phê thơm.</p>
+                    <div class="card-bottom">
+                        <span class="price">46.000đ</span>
+                        <button>Đặt món</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://img1.daumcdn.net/thumb/R800x0/?fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Flm8NS%2FbtsNIPDCk0g%2F63IFl47KGujAF8QDnvZYiK%2Fimg.png&scode=mtistory2" alt="Americano">
+                <div class="card-body">
+                    <h3>Americano</h3>
+                    <p class="description">Espresso và nước tạo nên vị cà phê thanh.</p>
+                    <div class="card-bottom">
+                        <span class="price">38.000đ</span>
+                        <button>Đặt món</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="https://trugoodnessbrands.com/cdn/shop/products/Untitleddesign_20_1024x1024%402x.png?v=1764703055" alt="Cold Brew">
+                <div class="card-body">
+                    <h3>Cold Brew</h3>
+                    <p class="description">Cà phê ủ lạnh dịu nhẹ, thơm và ít đắng.</p>
+                    <div class="card-bottom">
+                        <span class="price">48.000đ</span>
+                        <button>Đặt món</button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+
+        <aside class="hot-menu">
+            <h3>🔥 Món HOT của quán</h3>
+
+            <div class="hot-item">
+                <img src="https://images.getrecipekit.com/20250721214230-Vietnam_Bac-Xiu-2.jpg?aspect_ratio=4%3A3&quality=90" alt="Bạc xỉu">
+                <div>
+                    <span class="hot-label">HOT</span>
+                    <h4>Bạc xỉu</h4>
+                    <p>36.000đ</p>
+                </div>
+            </div>
+
+            <div class="hot-item">
+                <img src="https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/food_pics_v2/medium/regular_latte.jpg" alt="Latte">
+                <div>
+                    <span class="hot-label">HOT</span>
+                    <h4>Latte</h4>
+                    <p>45.000đ</p>
+                </div>
+            </div>
+
+            <div class="hot-item">
+                <img src="https://gcs.tripi.vn/public-tripi/tripi-feed/img/474190xxi/lion-coffee-1177547.jpg" alt="Trà đào cam sả">
+                <div>
+                    <span class="hot-label">BEST</span>
+                    <h4>Trà đào cam sả</h4>
+                    <p>42.000đ</p>
+                </div>
+            </div>
+
+            <div class="hot-item">
+                <img src="https://whipit.com/cdn/shop/files/N2O-uses_frappe_1000x1000_690b3772-d211-4cac-881f-dd61beb4d39a.jpg?v=1715019539" alt="Chocolate đá xay">
+                <div>
+                    <span class="hot-label">HOT</span>
+                    <h4>Chocolate đá xay</h4>
+                    <p>52.000đ</p>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+</section>
+
+<section id="tra" class="menu-section">
+    <div class="section-heading">
+        <p class="section-kicker">MENU 02</p>
+        <h2>Trà & thức uống</h2>
+    </div>
+
+    <div class="menu-grid">
+        <article class="card"><img src="https://gcs.tripi.vn/public-tripi/tripi-feed/img/474190xxi/lion-coffee-1177547.jpg" alt="Trà đào cam sả"><div class="card-body"><h3>Trà đào cam sả</h3><p class="description">Trà đào thơm mát kết hợp cam và sả.</p><div class="card-bottom"><span class="price">42.000đ</span><button>Đặt món</button></div></div></article>
+        <article class="card"><img src="https://cdn.foodaciously.com/static/recipes/6a8cad49-6315-416d-995f-9c6861996228/lychee-iced-tea-b5557cf2e58ecc5f0615a1812e98bc0b.jpg" alt="Trà vải"><div class="card-body"><h3>Trà vải</h3><p class="description">Vị trà thanh mát cùng vị vải ngọt dịu.</p><div class="card-bottom"><span class="price">42.000đ</span><button>Đặt món</button></div></div></article>
+        <article class="card"><img src="https://media.phunutoday.vn/files/content/2026/03/29/nuoc-chanh-mat-ong-0400.jpg" alt="Trà chanh mật ong"><div class="card-body"><h3>Trà chanh mật ong</h3><p class="description">Thanh nhẹ, chua ngọt tự nhiên.</p><div class="card-bottom"><span class="price">39.000đ</span><button>Đặt món</button></div></div></article>
+        <article class="card"><img src="https://image.plo.vn/w1000/Uploaded/2026/gfmzd/2025_03_20/unnamed-7198-9227.png.webp" alt="Matcha Latte"><div class="card-body"><h3>Matcha Latte</h3><p class="description">Matcha thơm nhẹ hòa cùng sữa tươi.</p><div class="card-bottom"><span class="price">46.000đ</span><button>Đặt món</button></div></div></article>
+        <article class="card"><img src="https://images.deliveryhero.io/image/talabat/MenuItems/Non_Coffee_Matcha_Japanes638848824712499307.jpg" alt="Matcha đá xay"><div class="card-body"><h3>Matcha đá xay</h3><p class="description">Mát lạnh, béo nhẹ và đậm vị matcha.</p><div class="card-bottom"><span class="price">52.000đ</span><button>Đặt món</button></div></div></article>
+    </div>
+</section>
+
+<section id="da-xay" class="menu-section">
+    <div class="section-heading">
+        <p class="section-kicker">MENU 03</p>
+        <h2>Đá xay & Soda</h2>
+    </div>
+
+    <div class="menu-grid">
+        <article class="card"><img src="https://www.kanto-syokuryo.jp/img/goods/4/38370000.jpg" alt="Soda chanh"><div class="card-body"><h3>Soda chanh</h3><p class="description">Soda chanh tươi mát, giải khát.</p><div class="card-bottom"><span class="price">39.000đ</span><button>Đặt món</button></div></div></article>
+        <article class="card"><img src="https://storage.googleapis.com/skai-imagegen/_/2024/08/21/01J5TZ5EWJB3CW9KC3E7WFBZ9M/U2" alt="Soda dâu"><div class="card-body"><h3>Soda dâu</h3><p class="description">Hương dâu ngọt nhẹ cùng soda sảng khoái.</p><div class="card-bottom"><span class="price">42.000đ</span><button>Đặt món</button></div></div></article>
+        <article class="card"><img src="https://whipit.com/cdn/shop/files/N2O-uses_frappe_1000x1000_690b3772-d211-4cac-881f-dd61beb4d39a.jpg?v=1715019539" alt="Chocolate đá xay"><div class="card-body"><h3>Chocolate đá xay</h3><p class="description">Chocolate đậm đà, xay lạnh mịn.</p><div class="card-bottom"><span class="price">52.000đ</span><button>Đặt món</button></div></div></article>
+    </div>
+</section>
+
+<section id="banh" class="menu-section">
+    <div class="section-heading">
+        <p class="section-kicker">MENU 04</p>
+        <h2>Bánh ngọt</h2>
+    </div>
+
+    <div class="menu-grid">
+        <article class="card"><img src="https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/food_pics_v2/medium/tiramisu.jpg" alt="Tiramisu"><div class="card-body"><h3>Tiramisu</h3><p class="description">Bánh mềm mịn với vị cà phê và cacao.</p><div class="card-bottom"><span class="price">55.000đ</span><button>Đặt món</button></div></div></article>
+        <article class="card"><img src="https://www.chefstrawberry.com/wp-content/uploads/2025/04/3V6EYTx.webp" alt="Cheesecake dâu"><div class="card-body"><h3>Cheesecake dâu</h3><p class="description">Béo nhẹ, mềm mịn cùng vị dâu.</p><div class="card-bottom"><span class="price">58.000đ</span><button>Đặt món</button></div></div></article>
+        <article class="card"><img src="https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/food_pics_v2/medium/croissant_with_butter.jpg" alt="Croissant bơ"><div class="card-body"><h3>Croissant bơ</h3><p class="description">Bánh sừng bò giòn thơm, nhiều lớp.</p><div class="card-bottom"><span class="price">39.000đ</span><button>Đặt món</button></div></div></article>
+        <article class="card"><img src="https://www.sprinklesbakeandparty.co.za/cdn/shop/files/American_Brownie_Mix_1kg_1200x1200.png?v=1754409495" alt="Brownie chocolate"><div class="card-body"><h3>Brownie chocolate</h3><p class="description">Chocolate đậm vị, mềm ẩm.</p><div class="card-bottom"><span class="price">42.000đ</span><button>Đặt món</button></div></div></article>
+        <article class="card"><img src="https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/food_pics_v2/medium/matcha_cake.jpg" alt="Bánh matcha"><div class="card-body"><h3>Bánh matcha</h3><p class="description">Bánh mềm thơm với hương matcha.</p><div class="card-bottom"><span class="price">45.000đ</span><button>Đặt món</button></div></div></article>
+    </div>
+</section>
+
+<aside id="khuyen-mai" class="promotion">
+    <p class="section-kicker">ƯU ĐÃI</p>
+    <h2>Mua 2 tặng 1</h2>
+    <p>Áp dụng từ 14:00 – 17:00, thứ Hai đến thứ Sáu.</p>
+    <span class="promo-badge">GIẢM ĐẾN 20%</span>
+</aside>
+
+</main>
+
+<footer id="lien-he">
+    <div class="footer-content">
+        <div>
+            <h2>The Cozy Bean</h2>
+            <p>Không gian cà phê ấm áp dành cho bạn.</p>
+        </div>
+        <div>
+            <h2>Giờ mở cửa</h2>
+            <p>07:00 – 22:00 mỗi ngày</p>
+        </div>
+        <div>
+            <h2>Liên hệ</h2>
+            <p>Hotline: 0909 123 456</p>
+            <p>Facebook • Instagram • TikTok</p>
+            <p>Địa chỉ: TP. Hồ Chí Minh</p>
+        </div>
+    </div>
+    <p class="copyright">© 2026 The Cozy Bean Coffee. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
