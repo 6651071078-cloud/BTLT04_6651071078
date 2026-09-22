@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750">
+<rect width="1200" height="750" rx="45" fill="#111827"/>
+<rect x="120" y="90" width="960" height="540" rx="24" fill="#1f2937" stroke="#334155" stroke-width="4"/>
+<text x="170" y="160" font-family="monospace" font-size="30" fill="#93c5fd">student_project.py</text>
+<text x="170" y="230" font-family="monospace" font-size="28" fill="#86efac">def</text>
+<text x="250" y="230" font-family="monospace" font-size="28" fill="#f8fafc"> analyze_data(data):</text>
+<text x="210" y="285" font-family="monospace" font-size="28" fill="#f9a8d4">total</text>
+<text x="330" y="285" font-family="monospace" font-size="28" fill="#f8fafc"> = sum(data)</text>
+<text x="210" y="340" font-family="monospace" font-size="28" fill="#f9a8d4">average</text>
+<text x="350" y="340" font-family="monospace" font-size="28" fill="#f8fafc"> = total / len(data)</text>
+<text x="210" y="395" font-family="monospace" font-size="28" fill="#f8fafc">return average</text>
+<rect x="170" y="470" width="700" height="80" rx="15" fill="#0f172a"/>
+<text x="200" y="520" font-family="monospace" font-size="25" fill="#67e8f9">&gt;&gt;&gt; 82.5</text>
+<text x="600" y="700" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#fff">PYTHON • DATA • LOGIC</text>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560">
+<rect width="900" height="560" rx="36" fill="#0f172a"/>
+<text x="90" y="150" font-family="monospace" font-size="62" fill="#67e8f9">&lt;/&gt;</text>
+<text x="90" y="250" font-family="Arial" font-size="48" font-weight="700" fill="#fff">Học lập trình</text>
+<text x="90" y="315" font-family="Arial" font-size="26" fill="#cbd5e1">Từ biến → hàm → cấu trúc dữ liệu</text>
+<rect x="90" y="380" width="520" height="18" rx="9" fill="#334155"/>
+<rect x="90" y="420" width="400" height="18" rx="9" fill="#334155"/>
+<circle cx="760" cy="270" r="85" fill="#0f766e"/>
+<path d="M725 270l30 30 55-65" fill="none" stroke="#fff" stroke-width="15"/>
+</svg>

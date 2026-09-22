@@ -1,0 +1,9 @@
+BẢN THIẾT KẾ FIGMA
+====================
+Bài: Blog giới thiệu bản thân sinh viên
+
+Sinh viên dán link Figma chế độ "Anyone with the link - Can view" vào dòng dưới:
+FIGMA_LINK: [DÁN LINK FIGMA TẠI ĐÂY]
+
+Gợi ý: có thể import ảnh mockup SVG trong thư mục images/ vào Figma rồi sắp xếp theo:
+Header → Hero → Giới thiệu → Kỹ năng → Dự án → Hành trình → Bài viết → Liên hệ → Footer.
